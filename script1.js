@@ -16,3 +16,10 @@ db.atividades.find().limit(2).pretty();///retorna apenas 2
 
 db.atividades.find().sort({titulo: 1});
 
+//projecao
+
+db.atividades.find({},{titulo:true});
+
+db.atividades.find({},{titulo:true,_id:false}).sort({titulo:1});
+
+db.atividades.findOne({titulo:"Primeira Postagem"})
