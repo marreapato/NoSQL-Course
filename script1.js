@@ -36,3 +36,8 @@ db.atividades.find({conteudo:{$in:["Conteudo 1","Conteudo 2","Conteudo 3"]},"tag
 
 db.atividades.count();
 
+//operador or
+
+db.atividades.find({"tags.qtde":{$gt:9},$or:[{conteudo:"Conteudo 1"},{conteudo:"Conteudo 2"}]}).pretty();
+db.atividades.find({"tags.qtde":{$gt:9},$or:[{conteudo:"Conteudo 1"},{conteudo:"Conteudo 3"}]}).pretty();
+
