@@ -12,3 +12,7 @@ db.atividades.find();
 
 db.atividades.find().pretty();
 
+db.atividades.find().limit(2).pretty();///retorna apenas 2
+
+db.atividades.find().sort({titulo: 1});
+
