@@ -41,3 +41,14 @@ db.atividades.count();
 db.atividades.find({"tags.qtde":{$gt:9},$or:[{conteudo:"Conteudo 1"},{conteudo:"Conteudo 2"}]}).pretty();
 db.atividades.find({"tags.qtde":{$gt:9},$or:[{conteudo:"Conteudo 1"},{conteudo:"Conteudo 3"}]}).pretty();
 
+// update aula 2
+
+db.atividades.update({titulo:"Primeira Postagem"},
+{$set:{conteudo:"Conteudo 0",tags:{qtde:14}},
+$currentDate:{lastModified: true}
+}
+);//coloca um last modified
+
+db.atividades.find();
+
+//
