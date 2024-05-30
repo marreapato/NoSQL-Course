@@ -49,6 +49,33 @@ $currentDate:{lastModified: true}
 }
 );//coloca um last modified
 
+db.atividades.update({titulo:"Segunda Postagem"},
+{$set:{conteudo:"Conteudo 0","tags.qtde":12},
+$currentDate:{lastModified: true}});
+
 db.atividades.find();
 
-//
+//atualizar multiplos documentos
+
+db.atividades.update({conteudo:"Conteudo 0"},
+{$set:{"tags.qtde":13},
+$currentDate:{lastModified:true}},
+{multi:true});
+
+db.atividades.find();
+
+//substituit o documento
+
+db.atividades.update({titulo:"Primeira Postagem"},
+{titulo:'Primeira Postagem',conteudo:'Conteudo 1',tags:{qtde:12}});
+
+db.atividades.find();
+
+//metodo upsert ou atualiza ou realiza insercao caso nao exista na colecao
+
+
+db.atividades.update({titulo:"Quarta Postagem"},
+{titulo:'Quarta Postagem',conteudo:'Conteudo 1',tags:{qtde:12}},
+{upsert:true});
+
+db.atividades.find();
