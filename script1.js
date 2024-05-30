@@ -79,3 +79,21 @@ db.atividades.update({titulo:"Quarta Postagem"},
 {upsert:true});
 
 db.atividades.find();
+
+//Remocao de documentos que atendam caracteristica
+
+db.atividades.remove({titulo:"Quarta Postagem"});
+
+//remocao de unico documento
+
+db.atividades.remove({titulo:"Quarta Postagem"},1);
+
+//remove tudo
+
+db.atividades.remove({});
+
+//remove collection
+
+db.atividade.drop();
+
+show collections
