@@ -23,3 +23,8 @@ db.animais.find().pretty();
 
 db.animais.find().count();
 
+//exibir ofrdem crescente
+
+db.animais.find().sort({especie:1}).pretty();//-1 decresce
+
+
