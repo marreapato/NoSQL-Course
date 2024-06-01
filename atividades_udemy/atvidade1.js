@@ -27,4 +27,30 @@ db.animais.find().count();
 
 db.animais.find().sort({especie:1}).pretty();//-1 decresce
 
+//duas primeiras aves
+db.animais.find({especie:"ave"},{nome:true,_id:false}).sort({nome:1}).limit(2).pretty();
 
+//atualizar as aves
+
+db.animais.update({especie:"ave"},
+{$set:{especie:"ave tropical"},
+$currentDate:{lastModified:true}},
+{multi:true});
+
+db.animais.find().sort({especie:1}).pretty();//-1 decresce
+
+//excluir peixes
+
+db.animais.remove({especie:"peixe"});
+
+db.animais.find().sort({especie:1}).pretty();//-1 decresce
+
+db.animais.remove({});
+
+db.animais.find().sort({especie:1}).pretty();//-1 decresce
+
+//remove colelction
+
+db.animais.drop();
+
+show collections
